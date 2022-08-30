@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Navbar from './layouts/Navbar';
+import Content from './layouts/Content';
+import API from './assets/json/api-quiz.json';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './assets/css/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+const axios = require('axios').default;
+
+axios.interceptors.request.use(function (config) {
+		config.baseURL = API.baseURL;
+		config.headers = {'X-Api-Key': API.token};
+		return config;
+	}, function (error) {
+		console.log('error', error);
+		return Promise.reject(error);
+	});
+
+const App = () => {
+	return (
+		<div className="wrapper">
+			<Navbar/>
+			<Content/>
+		</div>
+	)
 }
 
 export default App;

@@ -1,0 +1,77 @@
+{
+   "daftarSoal": [
+      {
+         "no": 1,
+         "soal": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint facere impedit tenetur suscipit. Similique explicabo pariatur ex? Voluptatem, deleniti sequi.",
+         "pilihan": [
+            {
+               "abjad": "a",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            },
+            {
+               "abjad": "b",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            },
+            {
+               "abjad": "c",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            },
+            {
+               "abjad": "d",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            }
+         ],
+         "jawaban": "a",
+         "status": "Unanswered"
+      },
+      {
+         "no": 2,
+         "soal": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, iure.",
+         "pilihan": [
+            {
+               "abjad": "a",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            },
+            {
+               "abjad": "b",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            },
+            {
+               "abjad": "c",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            },
+            {
+               "abjad": "d",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            }
+         ],
+         "jawaban": "c",
+         "status": "Unanswered"
+      },
+      {
+         "no": 3,
+         "soal": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat soluta impedit quae voluptatum reprehenderit voluptates!",
+         "pilihan": [
+            {
+               "abjad": "a",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            },
+            {
+               "abjad": "b",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            },
+            {
+               "abjad": "c",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            },
+            {
+               "abjad": "d",
+               "deskripsi": "Lorem ipsum dolor sit amet."
+            }
+         ],
+         "jawaban": "d",
+         "status": "Unanswered"
+      }
+   ],
+   "status": ["Answered", "Unanswered", "Not Answered"]
+}
