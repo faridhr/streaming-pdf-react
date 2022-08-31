@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import PdfViewer from "../components/PdfViewer";
-import API from "../assets/json/api-quiz.json";
-import Modal from "../components/Modal";
+import React, { useState, useEffect } from 'react';
+import PdfViewer from '../components/PdfViewer';
+import API from '../assets/json/api-quiz.json';
 
-const axios = require("axios").default;
+const axios = require('axios').default;
 
 const Content = () => {
 	useEffect(() => {
@@ -15,30 +14,21 @@ const Content = () => {
 	const [modalOpen, setModalOpen] = useState(false);
 
 	const requestAPI = () => {
-		// axios.get('/questions?limit=10&category=SQL&difficulty=medium').then(res => setQuestion(res.data));
+		axios.get('/questions?limit=10&category=SQL&difficulty=medium').then((res) => setQuestion(res.data));
 	};
 
 	const listOfQuiz = () => {
 		let description = [];
 		for (let i = 0; i < question.length; i++) {
-			description.unshift("Unanswered");
+			description.unshift('Unanswered');
 		}
-		return description.map((e, i) => <li key={`listQuiz_${i}`} className={`list-group-item${questionNumber === i ? " fw-bold" : ""}`}>{`${i + 1}. ${e}`}</li>);
+		return description.map((e, i) => <li key={`listQuiz_${i}`} className={`list-group-item${questionNumber === i ? ' fw-bold' : ''}`}>{`${i + 1}. ${e}`}</li>);
 	};
 
 	return (
 		<main className='container mt-3'>
 			<div className='modal fade' id='modal-pdf' tabIndex='-1' aria-labelledby='modal-pdf-label' aria-hidden='true'>
-				<div className='modal-dialog'>
-					{modalOpen && (
-						<Modal hideFooter={true} modalTitle='Preview'>
-							<PdfViewer onLoadPdf={() => "Loading PDF file..."} src={API.sourcePdf} />
-						</Modal>
-					)}
-				</div>
-				{/* <Modal>
-					<PdfViewer src={API.sourcePdf} />
-				</Modal> */}
+				<div className='modal-dialog'>{modalOpen && <PdfViewer onClose={() => setModalOpen(false)} src={API.sourcePdf} />}</div>
 			</div>
 			<div className='row'>
 				<div className='col-12 mb-2'>
@@ -64,9 +54,16 @@ const Content = () => {
 								<div key={`isi_soal_${i}`}>
 									<div className='card-header fw-bold'>{`Soal Nomor ${questionNumber + 1}`}</div>
 									<div className='card-body'>
-										{/* <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#modal-pdf'>
-											Show attachment
-										</button> */}
+										<div className='d-flex justify-content-end'>
+											<button
+												type='button'
+												onClick={() => setModalOpen(true)}
+												className='btn btn-outline-primary btn-sm'
+												data-bs-toggle='modal'
+												data-bs-target='#modal-pdf'>
+												Attachment
+											</button>
+										</div>
 										<div className='card-text'>
 											{e.question}
 											<ul className='list-group list-group-flush mt-2'>
@@ -105,9 +102,9 @@ const Content = () => {
 									</div>
 								</div>
 							))}
-						<button type='button' className='btn btn-primary btn-sm' onClick={() => setModalOpen(true)} data-bs-toggle='modal' data-bs-target='#modal-pdf'>
-							Show attachment
-						</button>
+						{/* <button type='button' className='btn btn-primary btn-sm' onClick={() => setModalOpen(true)} data-bs-toggle='modal' data-bs-target='#modal-pdf'>
+							<span className='fa fa-fw fa-eye'></span> Show attachment
+						</button> */}
 					</div>
 				</div>
 			</div>

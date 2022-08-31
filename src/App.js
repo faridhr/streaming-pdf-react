@@ -5,26 +5,29 @@ import API from './assets/json/api-quiz.json';
 
 import './assets/css/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 const axios = require('axios').default;
 
-axios.interceptors.request.use(function (config) {
+axios.interceptors.request.use(
+	function (config) {
 		config.baseURL = API.baseURL;
-		config.headers = {'X-Api-Key': API.token};
+		config.headers = { 'X-Api-Key': API.token };
 		return config;
-	}, function (error) {
+	},
+	function (error) {
 		console.log('error', error);
 		return Promise.reject(error);
-	});
+	}
+);
 
 const App = () => {
 	return (
-		<div className="wrapper">
-			<Navbar/>
-			<Content/>
+		<div className='wrapper'>
+			<Navbar />
+			<Content />
 		</div>
-	)
-}
+	);
+};
 
 export default App;
